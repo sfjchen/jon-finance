@@ -41,7 +41,8 @@ export async function categorizePending(db: AdminClient, opts: { force?: boolean
     .is("superseded_by", null)
     .order("posted_date", { ascending: false })
     .limit(2000);
-  const { data: txns, error } = opts.force ? await query : await query.eq("category_source", "none");
+  // Force mode re-evaluates everything except explicit user edits.
+  const { data: txns, error } = opts.force ? await query.neq("category_source", "user") : await query.eq("category_source", "none");
   if (error) throw error;
   if (!txns || txns.length === 0) return { categorized: 0, llm: 0, review: 0 };
 
