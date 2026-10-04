@@ -25,7 +25,7 @@ export function Amount({ value, className, signed = true, muted = false }: { val
 }
 
 export function Delta({ value, className }: { value: number | null | undefined; className?: string }) {
-  const v = value ?? null;
+  const v = value === null || value === undefined ? null : Math.abs(value) < 0.5 ? 0 : value;
   const up = v !== null && v > 0;
   const down = v !== null && v < 0;
   return (
