@@ -4,7 +4,13 @@ import { createClient } from "@supabase/supabase-js";
 config({ path: ".env.local" });
 const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, { auth: { persistSession: false } });
 async function main() {
-  const c = async (t: string, f?: (q: any) => any) => { let q = db.from(t).select("id", { count: "exact", head: true }); if (f) q = f(q); const { count, error } = await q; return error ? `ERR ${error.message}` : count; };
+  type CountQuery = ReturnType<ReturnType<typeof db.from>["select"]>;
+  const c = async (t: string, f?: (q: CountQuery) => CountQuery) => {
+    let q = db.from(t).select("id", { count: "exact", head: true }) as CountQuery;
+    if (f) q = f(q);
+    const { count, error } = await q;
+    return error ? `ERR ${error.message}` : count;
+  };
   console.log("accounts", await c("accounts"));
   console.log("transactions", await c("transactions"));
   console.log("  pending", await c("transactions", q => q.eq("pending", true)));
