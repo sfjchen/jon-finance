@@ -1,7 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PUBLIC_PATHS = ["/login", "/auth/callback", "/auth/signout"];
+const PUBLIC_PATHS = ["/login", "/auth/callback", "/auth/signout", "/privacy"];
 
 /**
  * Refreshes the Supabase session cookie on every request and gates the dashboard.

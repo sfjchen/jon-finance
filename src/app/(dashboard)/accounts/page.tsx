@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PlaidLinkButton } from "./plaid-link-button";
 import { SyncButton } from "./sync-button";
+import { ImportCsvDialog } from "./import-csv-dialog";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Accounts" };
@@ -29,6 +30,7 @@ export default async function AccountsPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <ImportCsvDialog accounts={(accounts ?? []).map((a) => ({ id: a.id, name: a.name, institution_name: a.institution_name, mask: a.mask, kind: a.kind, source: a.source }))} />
           <SyncButton />
           <PlaidLinkButton />
         </div>

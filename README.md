@@ -18,8 +18,9 @@ npm run dev
 Sign in at `/login` with the allowed email. In Plaid sandbox, link any bank with `user_good` / `pass_good`.
 
 ## Monthly routine (until Fidelity gets an API)
-1. Fidelity → Activity & Orders → Download CSV; Positions → Download. Drop both in `data/imports/fidelity/`.
-2. Run the Fidelity importer (phase 2).
+Fidelity → Activity & Orders → Download CSV; Positions → Download. Then **Accounts → Import CSV**. Details and one-time backfills for every institution: [docs/IMPORT-GUIDE.md](docs/IMPORT-GUIDE.md).
 
 ## Status
-Phase 1 (vertical slice) complete: auth, schema, Plaid link + sync, categorization, transactions, accounts, home KPIs. See `docs/ARCHITECTURE.md` §6 for the remaining phases.
+- Phase 1 (vertical slice): auth, schema, Plaid link + sync, categorization, transactions, accounts, home KPIs. Done.
+- Phase 2 (CSV): importers for Fidelity (activity + positions), Wells Fargo, Chase, U.S. Bank, Discover, Venmo, PayPal, Robinhood; Plaid-overlap reconciliation; import dialog. Done, pending real-file validation.
+- Remaining: see `docs/ARCHITECTURE.md` §6 (cash flow, recurring, cards, investments, net worth, reports).
