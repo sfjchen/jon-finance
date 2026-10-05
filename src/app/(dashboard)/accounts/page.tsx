@@ -37,8 +37,11 @@ export default async function AccountsPage() {
       </div>
 
       {env === "sandbox" ? (
-        <Card className="p-4 shadow-none text-sm text-muted-foreground">
-          Sandbox mode: in Plaid Link pick any bank and sign in with <code className="font-mono inline">user_good</code> / <code className="font-mono inline">pass_good</code>. Switch <code className="font-mono inline">PLAID_ENV=production</code> to link real accounts.
+        <Card className="p-4 shadow-none">
+          <p className="text-sm text-muted-foreground">
+            Sandbox mode: in Plaid Link pick any bank and sign in with <code className="font-mono text-foreground">user_good</code> / <code className="font-mono text-foreground">pass_good</code>.
+            Switch <code className="font-mono text-foreground">PLAID_ENV=production</code> to link real accounts.
+          </p>
         </Card>
       ) : null}
 
