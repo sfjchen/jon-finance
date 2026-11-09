@@ -96,7 +96,7 @@
 
 ## 7. Privacy & Security
 
-- Encrypt at rest (SQLCipher or `age`; FileVault). Never commit data: gitignore `*.csv *.ofx *.qfx *.db data/`; gitleaks pre-commit.
+- Encrypt at rest (SQLCipher or `age`). Never commit data: gitignore `*.csv *.ofx *.qfx *.db data/`; gitleaks pre-commit.
 - Secrets in Keychain or gitignored `.env`; never in code or notebooks.
 - Least privilege: read-only aggregator tokens; never store bank passwords.
 - LLM APIs: strip account numbers and names; prefer aggregates where possible; check retention policy.
