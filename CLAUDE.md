@@ -40,4 +40,5 @@ npm run seed:categories
 ## Infra
 - Supabase project `jon-finance` ref `wnwwqpfooftxzxmsjkhn` (us-west-1). Linked via CLI.
 - Vercel project `jon-finance` → finance.sfjc.dev. Cron: `GET /api/sync` daily 12:00 UTC.
-- GitHub `sfjchen/jon-finance` (private), deploys from `main`.
+- GitHub `sfjchen/jon-finance` (public, no data or secrets in it), deploys from `main`.
+- Local checkout lives at `~/Desktop/Jon-fun/finance`, nested inside jon-fun like `Veridian/` and gitignored there. It is its own repo, Supabase project, and Vercel project. `next.config.ts` pins `turbopack.root` for that reason.
