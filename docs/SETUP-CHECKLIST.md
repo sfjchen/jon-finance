@@ -15,7 +15,7 @@ Claude drives your Chrome for everything it can. You only do the four things tha
 Step 4 command (run after copying the Production secret):
 
 ```bash
-~/Desktop/jon-finance/scripts/set-plaid-production.sh
+~/Desktop/Jon-fun/finance/scripts/set-plaid-production.sh
 ```
 
 Bank-specific notes for step 5:
